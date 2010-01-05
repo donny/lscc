@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %title= @title
+    %link(rel="stylesheet" href="/style.css" type="text/css")
+ 
+  %body
+    #header
+      %h1= 'Is the Service at LSCC on now?'
+      %img(src="#{@is_service_on_now ? '/yes.png' : '/no.png'}")
+ 
+    #content
+      %p= "Current local time in Melbourne: #{@mtime.strftime("%A, %d %B %Y at %H:%M")}" 
+      %p= "The next Sunday Service at LSCC: #{@next_service_time.strftime("%A, %d %B %Y at %H:%M")}" 
+      %p= "In #{@next_service_days} days, #{@next_service_hours} hours, #{@next_service_mins} minutes"
+
+    = haml :footer
